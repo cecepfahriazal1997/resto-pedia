@@ -2,11 +2,16 @@ list-horizontal-component {
     display: block;
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: $bg-light;
-    h1 {
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: $primary;
+    background-color: $bg-gray-soft;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: $primary;
+        }
     }
     .list-restaurant {
         margin-top: 20px;

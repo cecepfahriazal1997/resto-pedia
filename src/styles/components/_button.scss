@@ -1,0 +1,33 @@
+.button {
+    display: inline-block;
+    border: none;
+    border-radius: $border-radius-lg;
+    font-weight: 600;
+    cursor: pointer;
+    &.button-primary {
+        background-color: $primary;
+        padding: 10px;
+        color: $white;
+        &:hover {
+            background-color: $primary-dark;
+        }
+    }
+    &.button-light {
+        background-color: $bg-gray;
+        padding: 10px;
+        color: $dark;
+        &:hover {
+            background-color: $bg-gray-dark;
+            color: $white;
+        }
+    }
+    &.button-info {
+        background-color: $info-light;
+        padding: 10px;
+        color: $info-dark;
+        &:hover {
+            background-color: $info;
+            color: $white;
+        }
+    }
+}
