@@ -1,6 +1,8 @@
 list-horizontal-component {
     display: block;
-    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: $bg-light;
     h1 {
         font-size: 1.3rem;
         font-weight: 600;

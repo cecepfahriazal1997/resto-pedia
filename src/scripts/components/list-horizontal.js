@@ -25,9 +25,11 @@ class ListHorizontal extends HTMLElement {
         }
 
         this.innerHTML = `
-            <h1>${this._item.title}</h1>
-            <div class="list-restaurant">
-                ${container.innerHTML}
+            <div class="container">
+                <h1>${this._item.title}</h1>
+                <div class="list-restaurant">
+                    ${container.innerHTML}
+                </div>
             </div>`;
     }
 }
