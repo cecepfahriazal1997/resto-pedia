@@ -1,5 +1,3 @@
-// import logo from '../../public/images/heros/hero-image_2.jpg'
-
 class Hero extends HTMLElement {
     constructor() {
         super()
