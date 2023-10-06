@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 @import './global'; 
 @import './components/button';
@@ -6,3 +7,4 @@
 @import './components/hero';
 @import './components/list-horizontal';
 @import './components/restaurant';
+@import './components/footer';
