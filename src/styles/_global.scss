@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    padding: 0;
+    margin: 0;
+    font-family: $font-main;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    @media screen and (min-width: map-get($container-max-widths, sm)) {
+        width: 100% !important;
+    }
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+        width: 540px !important;
+    }
+    @media screen and (min-width: map-get($container-max-widths, md)) {
+        width: 720px !important;
+    }
+    @media screen and (min-width: map-get($container-max-widths, lg)) {
+        width: 960px !important;
+    }
+    @media screen and (min-width: map-get($container-max-widths, xl)) {
+        width: 1140px !important;
+    }
+    @media screen and (min-width: map-get($container-max-widths, xll)) {
+        width: 1320px !important;
+    }
+}

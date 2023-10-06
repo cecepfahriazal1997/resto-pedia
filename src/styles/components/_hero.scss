@@ -1,0 +1,29 @@
+hero-section {
+    display: block;
+    width: 100%;
+    background: url('./../public/images/heros/hero-image_4.jpg') no-repeat fixed center ;
+    height: 600px;
+    background-size: cover;
+
+    div {
+        display: grid;
+        position: relative;
+        align-content: center;
+        text-align: center;
+        height: 600px;
+        background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(4,13,18,1) 0%, rgba(0,0,0,0.375875350140056) 50%, rgba(4,13,18,1)) ;
+        padding: 12px;
+        color: $white;
+        line-height: 2rem;
+        h1 {
+            margin-bottom: 20px;
+            font-size: 3rem;
+            text-shadow: -1px -1px 0 $dark, 1px -1px 0 $dark, -1px 1px 0 $dark, 1px 1px 0 $dark;
+        }
+        p {
+            font-family: monospace;
+            font-size: 1.3rem;
+            text-shadow: -1px -1px 0 $dark, 1px -1px 0 $dark, -1px 1px 0 $dark, 1px 1px 0 $dark;
+        }
+    }
+}
