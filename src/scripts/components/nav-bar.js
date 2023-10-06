@@ -16,9 +16,9 @@ class NavBar extends HTMLElement {
                 <img src="${logo}" />
             </a>
             <ul class="nav">
-                <li><a href="javascript:void(0)" class="nav-link active">Home</a></li>
-                <li><a href="javascript:void(0)" class="nav-link">Favorite</a></li>
-                <li><a href="javascript:void(0)" class="nav-link">About Us</a></li>
+                <li><a href="/" class="nav-link active">Home</a></li>
+                <li><a href="#" class="nav-link">Favorite</a></li>
+                <li><a href="#" class="nav-link">About Us</a></li>
             </ul>
         </div>`;
     }
