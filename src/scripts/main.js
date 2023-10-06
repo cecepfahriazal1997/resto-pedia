@@ -6,6 +6,7 @@ export default class Main {
 
         // initialize list restaurant
         this.initList('top', 4)
+        this.initList('nearby', 4)
     }
 
     static initMenu() {
@@ -29,7 +30,12 @@ export default class Main {
         let index = 0
 
         const tmpData = []
-        tmpData.title = "Top Rated"
+        if (type == 'top') {
+            tmpData.title = "Top Rated"
+        } else if (type == 'nearby') {
+            tmpData.title = "Nearby"
+            index = 1
+        }
         tmpData.lists = data.restaurants.splice(data.restaurants.length - limit, limit)
         listRestaurant[index].listItem = tmpData
 
