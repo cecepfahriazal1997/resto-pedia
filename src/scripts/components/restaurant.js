@@ -24,4 +24,4 @@ class NavBar extends HTMLElement {
     }
 }
 
-customElements.define('nav-bar-component', NavBar)
+customElements.define('restaurant-component', NavBar)

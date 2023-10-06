@@ -20,4 +20,4 @@ class Hero extends HTMLElement {
     }
 }
 
-customElements.define('hero-section', Hero)
+customElements.define('hero-component', Hero)
