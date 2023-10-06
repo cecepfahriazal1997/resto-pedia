@@ -1,27 +1,32 @@
-import logo from '../../public/images/logo.png'
-
-class NavBar extends HTMLElement {
+class Restaurant extends HTMLElement {
     constructor() {
         super()
     }
 
-    connectedCallback() {
+    set detail(data) {
+        this._detail = data
         this.render()
     }
 
     render() {
         this.innerHTML = `
-        <div class="container">
-            <a class="icon" href="/">
-                <img src="${logo}" />
-            </a>
-            <ul class="nav">
-                <li><a href="javascript:void(0)" class="nav-link active">Home</a></li>
-                <li><a href="javascript:void(0)" class="nav-link">Favorite</a></li>
-                <li><a href="javascript:void(0)" class="nav-link">About Us</a></li>
-            </ul>
-        </div>`;
+            <div class="thumbnail">
+                <img src="${this._detail.pictureId}" class="img-thumbnail" />
+            </div>
+            <div class="header">
+                <div class="title">
+                    <h5>${this._detail.name}</h5>
+                    <p>${this._detail.city}</p>
+                </div>
+                <div>
+                    <i class="ph-fill ph-star"></i> <span>${this._detail.rating}</span>
+                </div>
+            </div>
+            <div class="content">
+                <p>${this._detail.description}</p>
+            </div>
+        `;
     }
 }
 
-customElements.define('restaurant-component', NavBar)
+customElements.define('restaurant-component', Restaurant)
