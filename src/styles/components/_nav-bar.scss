@@ -31,17 +31,19 @@ nav-bar-component {
                 height: 100%;
                 display: inline-block;
                 a {
+                    display: block;
                     margin-left: 20px;
                     margin-right: 20px;
                     text-decoration: none;
                     color: white;
-                    padding-bottom: 10px;
                     position: relative;
+                    min-height: 44px !important;
+                    min-width: 44px !important;
 
                     &:before {
                         content: '';
                         position: absolute;
-                        bottom: 0px;
+                        bottom: 10px;
                         left: 0px;
                         width: 0%;
                         height: 3px;

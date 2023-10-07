@@ -27,6 +27,27 @@ body {
     margin-left: 1.5em
 }
 
+.skip-content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 10px;
+    top: -70px;
+
+    &:focus {
+        top: 0px !important;
+        color: $black;
+        z-index: 10000;
+        background-color: white;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
 .container {
     margin-right: auto;
     margin-left: auto;
