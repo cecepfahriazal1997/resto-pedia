@@ -6,9 +6,11 @@
 body {
     display: flex;
     flex-flow: column;
+    width: 100%;
     padding: 0;
     margin: 0;
     font-family: $font-main;
+    overflow-x: hidden;
 }
 
 .ml-1 {
@@ -49,24 +51,14 @@ body {
 }
 
 .container {
-    margin-right: auto;
-    margin-left: auto;
-    @media screen and (min-width: map-get($container-max-widths, sm)) {
-        width: 100% !important;
-    }
+    margin-right: 15%;
+    margin-left: 15%;
     @media screen and (max-width: map-get($container-max-widths, sm)) {
-        width: 540px !important;
+        margin-left: 12px;
+        margin-right: 12px;
     }
-    @media screen and (min-width: map-get($container-max-widths, md)) {
-        width: 720px !important;
-    }
-    @media screen and (min-width: map-get($container-max-widths, lg)) {
-        width: 960px !important;
-    }
-    @media screen and (min-width: map-get($container-max-widths, xl)) {
-        width: 1140px !important;
-    }
-    @media screen and (min-width: map-get($container-max-widths, xll)) {
-        width: 1320px !important;
+    @media screen and (max-width: map-get($container-max-widths, lg)) {
+        margin-left: 12px;
+        margin-right: 12px;
     }
 }

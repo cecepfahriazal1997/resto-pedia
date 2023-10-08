@@ -21,6 +21,7 @@ $border-radius: 6px;
 $border-radius-sm: 4px;
 
 $white: #FFFFFF;
+$white-100: #ffffff87;
 $black: #000000;
 $black-800: #001524;
 $black-700: #272829;
@@ -41,6 +42,8 @@ $font-main: 'Poppins';
 
 // Device Size
 $container-max-widths: (
+    xxm: 250px,
+    xm: 325px,
     sm: 540px,
     md: 720px,
     lg: 960px,

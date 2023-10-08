@@ -3,6 +3,8 @@
     border: none;
     border-radius: $border-radius-lg;
     font-weight: 600;
+    min-height: 44px;
+    min-width: 44px;
     cursor: pointer;
     &.button-primary {
         background-color: $primary;

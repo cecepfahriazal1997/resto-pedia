@@ -38,7 +38,5 @@ export default class Main {
         }
         tmpData.lists = data.restaurants.splice(data.restaurants.length - limit, limit)
         listRestaurant[index].listItem = tmpData
-
-        console.log(data.restaurants);
     }
 }

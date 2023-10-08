@@ -3,6 +3,7 @@ restaurant-component {
     box-shadow: 3px 3px 3px #dcdada0e;
     border-radius: $border-radius-xl;
     background-color: $white;
+    min-width: 200px;
     .thumbnail {
         padding: 0px;
         img {
@@ -17,6 +18,7 @@ restaurant-component {
         display: grid;
         grid-template-columns: 1fr auto;
         padding: 10px 14px;
+        align-items: start;
         .title {
             display: block;
             h5 {
@@ -52,6 +54,14 @@ restaurant-component {
             overflow: hidden;
             text-overflow: clip;
             line-height: 1.6;
+            
+            @media screen and (max-width: map-get($container-max-widths, sm)) {
+                -webkit-line-clamp: 2;
+            }
+            
+            @media screen and (max-width: map-get($container-max-widths, lg)) {
+                -webkit-line-clamp: 3;
+            }
         }
     }
 }
