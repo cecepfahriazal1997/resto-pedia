@@ -29,5 +29,38 @@ hero-component {
             font-family: monospace;
             font-size: 1.2rem;
         }
+        .search {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            background: transparent;
+            align-items: center;
+            margin: 30px 20%;
+
+            input {
+                width: 100%;
+                height: 48px;
+                position: relative;
+                font-size: 1rem;
+
+                &:focus {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: $primary;
+                }
+            }
+
+            span {
+                position: absolute;
+                color: $text-muted;
+                right: 0px;
+                font-size: 1.2rem;
+                margin-right: 30px;
+            }
+
+            @media screen and (max-width: map-get($container-max-widths, md)) {
+                margin: 30px 5%;
+            }
+        }
     }
 }
