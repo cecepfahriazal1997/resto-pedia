@@ -210,5 +210,18 @@ nav-bar-component {
                 }
             }
         }
+        
+        @media screen and (max-width: map-get($container-max-widths, sm)) {
+            min-height: 25px;
+            min-width: 30px;
+            span {
+                &:before {
+                    top: -10px;
+                }
+                &:after {
+                    bottom: -10px;
+                }
+            }
+        }
     }
 }
