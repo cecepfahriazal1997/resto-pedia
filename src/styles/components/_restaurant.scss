@@ -47,7 +47,7 @@ restaurant-component {
     .content {
         padding: 0px 14px 14px 14px;
         p {
-            -webkit-line-clamp: 5;
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             display: -webkit-box;
             color: $text-muted;
