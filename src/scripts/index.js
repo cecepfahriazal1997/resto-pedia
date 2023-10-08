@@ -5,6 +5,7 @@ import '../styles/main.scss'
 import './components/nav-bar.js'
 import './components/hero.js'
 import './components/list-horizontal.js'
+import './components/list-vertical.js'
 import './components/footer.js'
 
 import Main from './main'
