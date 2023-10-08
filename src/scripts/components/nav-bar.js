@@ -27,6 +27,11 @@ class NavBar extends HTMLElement {
         }
 
         // initialize event for menu mobile
+        hamburgerButtonElement.addEventListener("keypress", (event) => {
+            this._toogleSideBar(event, hamburgerButtonElement, drawerElement)
+            window.scrollTo(0,0)
+        });
+
         hamburgerButtonElement.addEventListener("click", (event) => {
             this._toogleSideBar(event, hamburgerButtonElement, drawerElement)
         });
@@ -55,9 +60,9 @@ class NavBar extends HTMLElement {
                     <img src="${logo}" alt="" />
                     <h1 id="title">RestoPedia</h1>
                 </a>
-                <div id="menu">
+                <a href="#" id="menu">
                     <span></span>
-                </div>
+                </a>
             </div>
             <ul id="drawer" class="nav">
                 <li><a href="/" class="nav-link active">Home</a></li>
