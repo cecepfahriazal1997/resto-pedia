@@ -18,12 +18,10 @@ hero-component {
         h1 {
             margin-bottom: 20px;
             font-size: 3rem;
-            text-shadow: -1px -1px 0 $dark, 1px -1px 0 $dark, -1px 1px 0 $dark, 1px 1px 0 $dark;
         }
         p {
             font-family: monospace;
             font-size: 1.3rem;
-            text-shadow: -1px -1px 0 $dark, 1px -1px 0 $dark, -1px 1px 0 $dark, 1px 1px 0 $dark;
         }
     }
 }
