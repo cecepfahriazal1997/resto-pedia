@@ -19,9 +19,15 @@ hero-component {
             margin-bottom: 20px;
             font-size: 3rem;
         }
-        p {
+        #subtitle {
+            font-weight: 600;
             font-family: monospace;
             font-size: 1.3rem;
+        }
+        #description {
+            font-weight: 200;
+            font-family: monospace;
+            font-size: 1.2rem;
         }
     }
 }

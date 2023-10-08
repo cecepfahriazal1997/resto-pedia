@@ -11,8 +11,8 @@ class Hero extends HTMLElement {
         this.innerHTML = `
         <div>
             <h1>RestoPedia</h1>
-            <p id="subtitle">Daftar restaurant dari berbagai kota berbintang.</p>
-            <p>Yuk! cari restaurant favoritmu disini.</p>
+            <p id="subtitle">Semua Restaurant Nusantara Ada Disini.</p>
+            <p id="description">Yuk! cari restaurant favoritmu.</p>
         </div>
         `;
     }
