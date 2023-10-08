@@ -28,19 +28,22 @@ class NavBar extends HTMLElement {
 
         // initialize event for menu mobile
         hamburgerButtonElement.addEventListener("click", (event) => {
-            this._toggleActionBar(event, hamburgerButtonElement, drawerElement)
+            this._toogleSideBar(event, hamburgerButtonElement, drawerElement)
         });
         
         mainElement.addEventListener("click", (event) => {
-            this._toggleActionBar(event, hamburgerButtonElement, drawerElement)
+            this._toogleSideBar(event, hamburgerButtonElement, drawerElement, 'nonactive')
         });
-
-        console.log(listMenu);
     }
 
-    _toggleActionBar(event, hamburgerButtonElement, drawerElement) {
-        hamburgerButtonElement.classList.toggle("active");
-        drawerElement.classList.toggle("open");
+    _toogleSideBar(event, hamburgerButtonElement, drawerElement, mode='toggle') {
+        if (mode == 'nonactive') {
+            hamburgerButtonElement.classList.remove("active");
+            drawerElement.classList.remove("open");
+        } else {
+            hamburgerButtonElement.classList.toggle("active");
+            drawerElement.classList.toggle("open");
+        }
         event.stopPropagation();
     }
 
