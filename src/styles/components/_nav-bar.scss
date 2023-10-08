@@ -118,108 +118,109 @@ nav-bar-component {
     #menu {
         display: none;
     }
-}
 
-@media screen and (max-width: 620px) {
-    #drawer {
-        top: 0;
-        left: 0;
-        bottom: 0;
-        display: block;
-        position: absolute;
-        height: 650px;
-        transform: translate(-150%, 0);
-        transition: transform 0.3s ease-in-out;
-        background-color: $black;
-        box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.51);
-        -webkit-box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.51);
-        -moz-box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.51);
-
-        ul {
-            margin-top: 20px;
-            list-style-type: none;
-            padding: 0 16px;
+    @media screen and (max-width: 620px) {
+        padding-top: 0px;
+        #drawer {
+            top: 0;
+            left: 0;
+            bottom: 0;
             display: block;
+            position: absolute;
+            height: 650px;
+            transform: translate(-150%, 0);
+            transition: transform 0.3s ease-in-out;
+            background-color: $black;
+            box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.51);
+            -webkit-box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.51);
+            -moz-box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.51);
 
-            li {
-                padding: 5px 0px;
+            ul {
+                margin-top: 20px;
+                list-style-type: none;
+                padding: 0 16px;
+                display: block;
 
-                a {
-                    text-decoration: none;
-                    font-size: 10px;
-                    color: $white;
+                li {
+                    padding: 5px 0px;
+
+                    a {
+                        text-decoration: none;
+                        font-size: 10px;
+                        color: $white;
+                    }
                 }
+            }
+
+            &.open {
+                transform: translate(0, 0);
             }
         }
 
-        &.open {
-            transform: translate(0, 0);
-        }
-    }
-
-    #menu {
-        display: flex !important;
-        min-height: 44px;
-        min-width: 44px;
-        position: relative;
-        align-items: center;
-
-        span {
+        #menu {
+            display: flex !important;
+            min-height: 44px;
+            min-width: 44px;
             position: relative;
-            width: 100%;
-            height: 3px;
-            background: $white;
-            transition: all .2s ease-in-out;
-            border-radius: $border-radius;
+            align-items: center;
 
-            &:before {
-                content: '';
-                position: absolute;
+            span {
+                position: relative;
                 width: 100%;
                 height: 3px;
                 background: $white;
-                top: -15px;
                 transition: all .2s ease-in-out;
                 border-radius: $border-radius;
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 3px;
-                background: $white;
-                bottom: -15px;
-                transition: all .2s ease-in-out;
-                border-radius: $border-radius;
-            }
-        }
-
-        &.active {
-            span {
-                background: transparent;
 
                 &:before {
-                    transform: rotate(45deg);
-                    top: 0px;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    background: $white;
+                    top: -15px;
+                    transition: all .2s ease-in-out;
+                    border-radius: $border-radius;
                 }
 
                 &:after {
-                    transform: rotate(-45deg);
-                    top: 0px;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    background: $white;
+                    bottom: -15px;
+                    transition: all .2s ease-in-out;
+                    border-radius: $border-radius;
                 }
             }
-        }
-        
-        @media screen and (max-width: map-get($container-max-widths, sm)) {
-            min-height: 25px;
-            min-width: 30px;
-            span {
-                &:before {
-                    top: -10px;
+
+            &.active {
+                span {
+                    background: transparent;
+
+                    &:before {
+                        transform: rotate(45deg);
+                        top: 0px;
+                    }
+
+                    &:after {
+                        transform: rotate(-45deg);
+                        top: 0px;
+                    }
                 }
-                &:after {
-                    bottom: -10px;
+            }
+            
+            @media screen and (max-width: map-get($container-max-widths, sm)) {
+                min-height: 25px;
+                min-width: 30px;
+                span {
+                    &:before {
+                        top: -10px;
+                    }
+                    &:after {
+                        bottom: -10px;
+                    }
                 }
             }
         }
