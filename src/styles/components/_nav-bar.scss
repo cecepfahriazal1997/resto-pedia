@@ -38,6 +38,7 @@ nav-bar-component {
         .icon {
             display: flex;
             gap: 20px;
+            grid-gap: 20px;
             align-items: center;
             text-decoration: none;
             h1 {
@@ -60,6 +61,7 @@ nav-bar-component {
             display: block;
             align-items: center;
             gap: 10px;
+            grid-gap: 10px;
 
             li {
                 height: 100%;
