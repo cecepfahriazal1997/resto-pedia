@@ -52,7 +52,7 @@ class NavBar extends HTMLElement {
         <div class="container">
             <div class="action-bar">
                 <a class="icon" href="/">
-                    <img src="${logo}" />
+                    <img src="${logo}" alt="" />
                     <h1 id="title">RestoPedia</h1>
                 </a>
                 <div id="menu">

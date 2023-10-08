@@ -11,7 +11,7 @@ class Restaurant extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="thumbnail">
-                <img src="${this._detail.pictureId}" class="img-thumbnail" />
+                <img src="${this._detail.pictureId}" class="img-thumbnail" alt="Foto Restaurant ${this._detail.name}" />
             </div>
             <div class="header">
                 <div class="title">
