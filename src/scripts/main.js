@@ -37,11 +37,14 @@ export default class Main {
 
         let tmpData = {lists: []}
         if (type == 'top') {
+            tmpData.icon = "ph-star"
             tmpData.title = "Top Rated"
         } else if (type == 'nearby') {
+            tmpData.icon = "ph-map-pin"
             tmpData.title = "Nearby"
             index = 1
         } else if (type == 'all') {
+            tmpData.icon = ""
             tmpData.title = "Semua Restaurant"
         }
 

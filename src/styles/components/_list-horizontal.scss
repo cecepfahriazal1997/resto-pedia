@@ -6,6 +6,8 @@ list-horizontal-component {
         justify-content: space-between;
         align-items: center;
         h1 {
+            display: flex;
+            align-items: center;
             font-size: 1.3rem;
             font-weight: 600;
             color: $black-700;

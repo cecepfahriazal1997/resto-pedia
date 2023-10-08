@@ -27,7 +27,7 @@ class ListHorizontal extends HTMLElement {
         this.innerHTML = `
             <div class="container">
                 <div class="header">
-                    <h1>${this._item.title}</h1>
+                    <h1><i class="ph-fill ${this._item.icon}"></i> &nbsp; ${this._item.title}</h1>
                     <div>
                         <button class="button button-light"><i class="ph-fill ph-sliders"></i> Filter</button>
                         <button class="button button-info ml-2">View All</button>
