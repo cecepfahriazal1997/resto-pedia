@@ -9,7 +9,6 @@ const Dashboard = {
             <list-vertical-component></list-vertical-component>
         </section>`
     },
-
     async finishRender() {
         this._initList('horizontal', 'top', 8)
         this._initList('horizontal','nearby', 8)

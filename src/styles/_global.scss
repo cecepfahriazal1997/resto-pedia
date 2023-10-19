@@ -90,12 +90,45 @@ body {
 .container {
     margin-right: 15%;
     margin-left: 15%;
+
     @media screen and (max-width: map-get($container-max-widths, sm)) {
         margin-left: 12px;
         margin-right: 12px;
     }
+
     @media screen and (max-width: map-get($container-max-widths, lg)) {
         margin-left: 12px;
         margin-right: 12px;
     }
+}
+
+.empty-state {
+    display: block;
+    background-color: $bg-light;
+    padding: 30px 10px;
+    border-radius: $border-radius-lg;
+    color: $bg-gray-dark;
+    text-align: center;
+    font-size: 1rem;
+
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+        font-size: 0.8rem;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: $bg-gray-soft;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $bg-gray;
+    border-radius: $border-radius-lg;
 }
