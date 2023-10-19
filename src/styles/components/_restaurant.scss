@@ -5,7 +5,6 @@ restaurant-component {
     border-radius: $border-radius-xl;
     background-color: $white;
     min-width: 250px;
-    max-width: 300px;
     transition: all 0.2s ease;
     a {
         text-decoration: none;
@@ -78,6 +77,16 @@ restaurant-component {
 }
 
 .detail-restaurant {
+    margin-left: 15%;
+    margin-right: 15%;
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+        margin-left: 0%;
+        margin-right: 0%;
+        margin-bottom: 30px;
+        .content {
+            padding: 0px 20px;
+        }
+    }
     .thumbnail {
         position: relative;
         img {
@@ -90,7 +99,7 @@ restaurant-component {
             left: 0;
             right: 0;
             width: 100%;
-            padding: 32px;
+            padding: 20px;
             background-color: rgba(0, 0, 0, 0.598);
             border-bottom-left-radius: $border-radius-lg;
             border-bottom-right-radius: $border-radius-lg;
@@ -100,10 +109,23 @@ restaurant-component {
             display: flex;
             gap: 15px;
             justify-content: space-between;
+            @media screen and (max-width: map-get($container-max-widths, sm)) {
+                #address, #city {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+        @media screen and (max-width: map-get($container-max-widths, sm)) {
+            img, .thumbnail-content {
+                border-radius: 0;
+            }
         }
     }
     h1 {
         font-size: 1.5rem;
+        @media screen and (max-width: map-get($container-max-widths, sm)) {
+            font-size: 1rem;
+        }
     }
     .categories {
         display: flex;
@@ -115,6 +137,9 @@ restaurant-component {
             padding: 5px 10px;
             border-radius: $border-radius-xl;
             border: 2px solid $info;
+            @media screen and (max-width: map-get($container-max-widths, sm)) {
+                font-size:0.7rem;
+            }
         }
     }
     .menu {

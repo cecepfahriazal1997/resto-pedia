@@ -60,7 +60,7 @@ class NavBar extends HTMLElement {
                     <img src="${logo}" alt="" />
                     <h1 id="title">RestoPedia</h1>
                 </a>
-                <a href="#" id="menu">
+                <a href="javascript:void(0)" id="menu">
                     <span></span>
                 </a>
             </div>
