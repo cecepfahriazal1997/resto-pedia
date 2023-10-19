@@ -1,4 +1,6 @@
-import data from '../../../public/data/DATA.json';
+import ApiServices from "../../services/api-service"
+import ApiConfig from "../../globals/api-config"
+
 const Dashboard = {
     async render() {
         return `<section id="list-restaurant">
@@ -9,11 +11,15 @@ const Dashboard = {
     },
 
     async finishRender() {
-        this._initList('horizontal', 'top', 4)
-        this._initList('horizontal','nearby', 4)
+        this._initList('horizontal', 'top', 8)
+        this._initList('horizontal','nearby', 8)
         this._initList('vertical','all')
     },
     async _initList(direction, type, limit=null) {
+        const fetchData = await ApiServices.fetchData(ApiConfig.LIST)
+
+        if (fetchData.error) return false
+        
         let listRestaurant = ''
         if (direction == 'vertical') {
             listRestaurant = document.querySelector('list-vertical-component')
@@ -36,7 +42,7 @@ const Dashboard = {
         }
 
         let pos = 0
-        for (const dataRestaurant of data.restaurants) {
+        for (const dataRestaurant of fetchData.restaurants) {
             if (limit == pos) { // set limit of data
                 break
             }
@@ -45,6 +51,8 @@ const Dashboard = {
         }
 
         if (direction == 'horizontal') {
+            if (type == 'top')
+                tmpData.lists.reverse()
             listRestaurant[index].listItem = tmpData
         } else {
             listRestaurant.listItem = tmpData

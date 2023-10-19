@@ -4,7 +4,8 @@ restaurant-component {
     box-shadow: 3px 3px 3px #dcdada0e;
     border-radius: $border-radius-xl;
     background-color: $white;
-    min-width: 200px;
+    min-width: 250px;
+    max-width: 300px;
     transition: all 0.2s ease;
     .thumbnail {
         padding: 0px;

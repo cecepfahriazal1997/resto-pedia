@@ -1,3 +1,4 @@
+import CONFIG from "../globals/config";
 class Restaurant extends HTMLElement {
     constructor() {
         super()
@@ -11,7 +12,7 @@ class Restaurant extends HTMLElement {
     render() {
         this.innerHTML = `
             <div class="thumbnail">
-                <img src="${this._detail.pictureId}" class="img-thumbnail" alt="Foto Restaurant ${this._detail.name}" />
+                <img src="${CONFIG.API_BASE_URL_IMAGE_SMALL}${this._detail.pictureId}" class="img-thumbnail" alt="Foto Restaurant ${this._detail.name}" />
             </div>
             <div class="header">
                 <div class="title">
