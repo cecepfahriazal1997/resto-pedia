@@ -7,8 +7,7 @@ import UrlParser from '../../routes/url-parser'
 const Detail = {
     async render() {
         return `
-        <div id="detail-restaurant" class="detail-restaurant">
-        </div>
+        <div id="detail-restaurant" class="detail-restaurant"></div>
         `
     },
     async finishRender() {
@@ -39,7 +38,10 @@ const Detail = {
                         <div>
                             ${await this._buildUICategories(data.categories)}
                         </div>
-                        <a href="#/" class="button button-light btn-back"><i class="ph-fill ph-arrow-left"></i> Kembali</a>
+                        <div class="action-control">
+                            <button class="button button-primary button-circle"><i class="ph ph-heart f-3"></i></button>
+                            <a href="#/" class="button button-light btn-back">Kembali</a>
+                        </div>
                     </div>
                     <h3 class="mt-3 mb-3">Overview</h3>
                     <p class="mb-3" id="description">${data.description}</p>

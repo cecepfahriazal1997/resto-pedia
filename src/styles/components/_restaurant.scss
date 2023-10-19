@@ -150,7 +150,7 @@ restaurant-component {
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             div {
                 cursor: default;
-                background-color: $primary;
+                background-color: $dark;
                 padding: 20px;
                 border-radius: $border-radius-lg;
                 color: $white;
@@ -204,6 +204,11 @@ restaurant-component {
                 font-size: 0.8rem;
             }
         }
+    }
+    .action-control {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
     @media screen and (max-width: map-get($container-max-widths, sm)) {
         margin-left: 0%;
