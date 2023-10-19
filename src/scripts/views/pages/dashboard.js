@@ -1,32 +1,19 @@
-import data from '../public/data/DATA.json';
-export default class Main {
-    static main() {
-        // initialize menu navbar
-        this.initMenu()
+import data from '../../../public/data/DATA.json';
+const Dashboard = {
+    async render() {
+        return `<section id="list-restaurant">
+            <list-horizontal-component></list-horizontal-component>
+            <list-horizontal-component></list-horizontal-component>
+            <list-vertical-component></list-vertical-component>
+        </section>`
+    },
 
-        // initialize list restaurant
-        this.initList('horizontal', 'top', 4)
-        this.initList('horizontal','nearby', 4)
-        this.initList('vertical','all')
-    }
-
-    static initMenu() {
-        document.addEventListener('DOMContentLoaded', () => {
-            // set menu to sticky mode when scrolling
-            var menuSticky = document.getElementById("nav-bar");
-            window.document.addEventListener('scroll', function () {
-                var scroll = window.scrollY
-
-                if (scroll >= 450) {
-                    menuSticky.classList.add("sticky");
-                } else {
-                    menuSticky.classList.remove("sticky");
-                }
-            });
-        })
-    }
-
-    static initList(direction, type, limit=null) {
+    async finishRender() {
+        this._initList('horizontal', 'top', 4)
+        this._initList('horizontal','nearby', 4)
+        this._initList('vertical','all')
+    },
+    async _initList(direction, type, limit=null) {
         let listRestaurant = ''
         if (direction == 'vertical') {
             listRestaurant = document.querySelector('list-vertical-component')
@@ -64,3 +51,5 @@ export default class Main {
         }
     }
 }
+
+export default Dashboard

@@ -8,6 +8,7 @@ class NavBar extends HTMLElement {
     connectedCallback() {
         this.render()
         this._initEvent()
+        this._toggleStickyMenu()
     }
 
     _initEvent() {
@@ -28,20 +29,20 @@ class NavBar extends HTMLElement {
 
         // initialize event for menu mobile
         hamburgerButtonElement.addEventListener("keypress", (event) => {
-            this._toogleSideBar(event, hamburgerButtonElement, drawerElement)
+            this._toggleSideBar(event, hamburgerButtonElement, drawerElement)
             window.scrollTo(0,0)
         });
 
         hamburgerButtonElement.addEventListener("click", (event) => {
-            this._toogleSideBar(event, hamburgerButtonElement, drawerElement)
+            this._toggleSideBar(event, hamburgerButtonElement, drawerElement)
         });
         
         mainElement.addEventListener("click", (event) => {
-            this._toogleSideBar(event, hamburgerButtonElement, drawerElement, 'nonactive')
+            this._toggleSideBar(event, hamburgerButtonElement, drawerElement, 'nonactive')
         });
     }
 
-    _toogleSideBar(event, hamburgerButtonElement, drawerElement, mode='toggle') {
+    _toggleSideBar(event, hamburgerButtonElement, drawerElement, mode='toggle') {
         if (mode == 'nonactive') {
             hamburgerButtonElement.classList.remove("active");
             drawerElement.classList.remove("open");
@@ -50,6 +51,19 @@ class NavBar extends HTMLElement {
             drawerElement.classList.toggle("open");
         }
         event.stopPropagation();
+    }
+
+    _toggleStickyMenu() {
+        var menuSticky = document.getElementById("nav-bar");
+        window.document.addEventListener('scroll', function () {
+            var scroll = window.scrollY
+
+            if (scroll >= 450) {
+                menuSticky.classList.add("sticky");
+            } else {
+                menuSticky.classList.remove("sticky");
+            }
+        });
     }
 
     render() {
@@ -65,8 +79,8 @@ class NavBar extends HTMLElement {
                 </a>
             </div>
             <ul id="drawer" class="nav">
-                <li><a href="/" class="nav-link active">Home</a></li>
-                <li><a href="#" class="nav-link">Favorite</a></li>
+                <li><a href="#/" class="nav-link active">Home</a></li>
+                <li><a href="#/favorite" class="nav-link">Favorite</a></li>
                 <li><a href="https://github.com/cecepfahriazal1997" class="nav-link" target="_blank">About Us</a></li>
             </ul>
         </div>`;

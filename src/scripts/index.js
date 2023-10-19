@@ -8,6 +8,23 @@ import './components/list-horizontal.js'
 import './components/list-vertical.js'
 import './components/footer.js'
 
-import Main from './main'
+import App from './views/app'
 
-Main.main()
+const app = new App({
+    content: document.querySelector('#content')
+})
+
+window.addEventListener('hashchange', () => {
+    app.renderPage();
+});
+
+window.addEventListener('load', () => {
+    app.renderPage();
+    // swRegister();
+    // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
+    // Initialize footer tools
+    // FooterToolsInitiator.init({
+    //     subscribeButton: document.querySelector('#subscribePushNotification'),
+    //     unsubscribeButton: document.querySelector('#unsubscribePushNotification'),
+    // });
+});
