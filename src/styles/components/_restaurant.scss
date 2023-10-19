@@ -77,6 +77,8 @@ restaurant-component {
 }
 
 .detail-restaurant {
+    margin-top: 32px;
+    margin-bottom: 32px;
     margin-left: 15%;
     margin-right: 15%;
     .thumbnail {
@@ -113,6 +115,11 @@ restaurant-component {
             }
         }
     }
+    .content {
+        .btn-back {
+            font-size: 0.9rem;
+        }
+    }
     h1 {
         font-size: 1.5rem;
         @media screen and (max-width: map-get($container-max-widths, sm)) {
@@ -124,11 +131,11 @@ restaurant-component {
         gap: 15px;
         row-gap: 15px;
         div {
-            background-color: #97cbff;
-            color: $white;
+            background-color: $bg-gray;
+            color: $black;
             padding: 5px 10px;
             border-radius: $border-radius-xl;
-            border: 2px solid $info;
+            border: 2px solid $bg-gray-dark;
             @media screen and (max-width: map-get($container-max-widths, sm)) {
                 font-size:0.7rem;
             }
@@ -140,7 +147,7 @@ restaurant-component {
             display: grid;
             gap: 15px;
             row-gap: 15px;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             div {
                 cursor: default;
                 background-color: $primary;
@@ -160,11 +167,26 @@ restaurant-component {
     }
     .rating {
         display: flex;
+        gap: 10px;
         overflow-x: auto;
+        padding-bottom: 16px;
         .rating-child {
+            min-width: 200px;
             padding: 16px;
-            background-color: $bg-gray;
+            background-color: $white;
+            border: 1px solid $bg-light;
+            box-shadow: 2px 2px 1px $bg-light;
             border-radius: $border-radius-lg;
+            .identity {
+                display: flex;
+                align-items: start;
+                gap: 10px;
+                img {
+                    margin-top: 5px;
+                    width: 32px;
+                    height: 32px;
+                }
+            }
             h4 {
                 color: $black-700;
             }
@@ -189,6 +211,9 @@ restaurant-component {
         margin-bottom: 30px;
         .content {
             padding: 0px 20px;
+            .btn-back {
+                font-size: 0.7rem;
+            }
         }
         h3 {
             font-size: 0.9rem;
@@ -196,5 +221,6 @@ restaurant-component {
         #description {
             font-size: 0.8rem;
         }
+
     }
 }

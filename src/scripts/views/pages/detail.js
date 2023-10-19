@@ -1,63 +1,127 @@
 import ApiServices from "../../services/api-service"
 import API_ENDPOINT from "../../globals/api-config"
+import CONFIG from "../../globals/config"
 
 import UrlParser from '../../routes/url-parser'
 
 const Detail = {
     async render() {
         return `
-        <div class="detail-restaurant">
-            <div class="thumbnail mb-3">
-                <img src="https://restaurant-api.dicoding.dev/images/small/22"></img>
-                <div class="thumbnail-content">
-                    <h1 class="mb-2">Melting Pot</h1>
-                    <div class="thumbnail-detail">
-                        <div>
-                            <div id="city"><i class="ph-fill ph-map-pin-line"></i> Makasar</div>
-                            <div id="address">Jln. Pandeglang no 19</div>
-                        </div>
-                        <div><i class="ph-fill ph-star"></i> 3.4</div>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="categories">
-                    <div>Italia</div>
-                    <div>Modern</div>
-                </div>
-                <h3 class="mt-3 mb-3">Overview</h3>
-                <p class="mb-3" id="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
-                <div class="menu mb-4">
-                    <h3 class="mb-2"><i class="ph-fill ph-bowl-food mr-2"></i> Menu Makanan</h3>
-                    <div class="menu-child foods mb-4">
-                        <div>Paket rosemary</div>
-                        <div>Toastie salmon</div>
-                    </div>
-                    <h3 class="mb-2"><i class="ph-fill ph-brandy mr-2"></i> Menu Minuman</h3>
-                    <div class="menu-child drinks mb-3">
-                    <div>Es krim</div>
-                    <div>Sirup</div>
-                    </div>
-                </div>
-                <h3 class="mb-2"><i class="ph-fill ph-star-half mr-2"></i> Review</h3>
-                <div class="rating">
-                    <div class="rating-child">
-                        <h4>Ahmad</h4>
-                        <h5>13 November 2019</h5>
-                        <p>Tidak rekomendasi untuk pelajar</p>
-                    </div>
-                </div>
-            </div>
+        <div id="detail-restaurant" class="detail-restaurant">
         </div>
         `
     },
     async finishRender() {
+        const contain = document.querySelector('#detail-restaurant')
         const url = UrlParser.parseActiveUrlWithoutCombiner();
         const fetchData = await ApiServices.fetchData(API_ENDPOINT.DETAIL(url.id))
 
         if (!fetchData.error) {
-            this._detail = fetchData.restaurant
+            contain.innerHTML = await this._buildUIDetailData(fetchData.restaurant)
         }
+    },
+    async _buildUIDetailData(data) {
+        return `<div class="thumbnail mb-3 mt-2">
+                    <img src="${CONFIG.API_BASE_URL_IMAGE_MEDIUM}${data.pictureId}"></img>
+                    <div class="thumbnail-content">
+                        <h1 class="mb-2">${data.name}</h1>
+                        <div class="thumbnail-detail">
+                            <div>
+                                <div id="city"><i class="ph-fill ph-map-pin-line"></i> ${data.city}</div>
+                                <div id="address">${data.address}</div>
+                            </div>
+                            <div><i class="ph-fill ph-star"></i> ${data.rating}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div style="display:flex; justify-content: space-between; width: 100%">
+                        <div>
+                            ${await this._buildUICategories(data.categories)}
+                        </div>
+                        <a href="#/" class="button button-light btn-back"><i class="ph-fill ph-arrow-left"></i> Kembali</a>
+                    </div>
+                    <h3 class="mt-3 mb-3">Overview</h3>
+                    <p class="mb-3" id="description">${data.description}</p>
+                    <div class="menu mb-4">
+                        ${await this._buildUIMenu(data.menus)}
+                    </div>
+                    ${await this._buildUIRating(data.customerReviews)}
+                </div>`
+    },
+    async _buildUICategories(listCategories) {
+        let result = ``
+        listCategories.forEach(element => {
+            result += `<div>${element.name}</div>`
+        });
+
+        return `
+        <div class="categories">
+        ${result}
+        </div>`
+    },
+    async _buildUIMenu(listMenu) {
+        // get list foods
+        let containerFood = `<div class="empty-state mb-4">Daftar menu makanan tidak tersedia</div>`
+        if (listMenu && listMenu.foods) {
+            let listMenuFoods = ``
+            listMenu.foods.forEach(element => {
+                listMenuFoods += `<div>${element.name}</div>`
+            });
+
+            containerFood = `
+            <div class="menu-child foods mb-4">
+            ${listMenuFoods}
+            </div>`
+        }
+
+        // get list drinks
+        let containerDrink = `<div class="empty-state">Daftar menu minuman tidak tersedia</div>`
+        if (listMenu && listMenu.drinks) {
+            let listMenuDrinks = ``
+            listMenu.drinks.forEach(element => {
+                listMenuDrinks += `<div>${element.name}</div>`
+            });
+
+            containerDrink = `
+            <div class="menu-child foods mb-4">
+            ${listMenuDrinks}
+            </div>`
+        }
+
+        return `
+        <h3 class="mb-2"><i class="ph-fill ph-bowl-food mr-2"></i> Menu Makanan</h3>
+        ${containerFood}
+        <h3 class="mb-2"><i class="ph-fill ph-brandy mr-2"></i> Menu Minuman</h3>
+        ${containerDrink}
+        `
+    },
+    async _buildUIRating(listRating) {
+        let rating = ``
+        let containerRating = `<div class="empty-state mb-4">Daftar menu makanan tidak tersedia</div>`
+        if (listRating) {
+            listRating.forEach(element => {
+                rating += `
+                <div class="rating-child">
+                    <div class="identity">
+                        <img src="./images/user.png" />
+                        <div>
+                            <h4>${element.name}</h4>
+                            <h5>${element.date}</h5>
+                        </div>
+                    </div>
+                    <p>${element.review}</p>
+                </div>`
+            });
+            containerRating = `
+            <div class="rating">
+            ${rating}
+            </div>`
+        }
+        return `
+        <h3 class="mb-2"><i class="ph-fill ph-star-half mr-2"></i> Review</h3>
+        ${containerRating}
+        `
     }
 }
 
