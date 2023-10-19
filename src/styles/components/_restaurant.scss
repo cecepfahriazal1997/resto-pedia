@@ -79,14 +79,6 @@ restaurant-component {
 .detail-restaurant {
     margin-left: 15%;
     margin-right: 15%;
-    @media screen and (max-width: map-get($container-max-widths, sm)) {
-        margin-left: 0%;
-        margin-right: 0%;
-        margin-bottom: 30px;
-        .content {
-            padding: 0px 20px;
-        }
-    }
     .thumbnail {
         position: relative;
         img {
@@ -160,6 +152,9 @@ restaurant-component {
                     color: $primary-dark;
                     font-weight: bold;
                 }
+                @media screen and (max-width: map-get($container-max-widths, sm)) {
+                    font-size: 0.9rem;
+                }
             }
         }
     }
@@ -183,6 +178,23 @@ restaurant-component {
                 font-weight: 500;
                 font-size: 0.8rem;
             }
+            @media screen and (max-width: map-get($container-max-widths, sm)) {
+                font-size: 0.8rem;
+            }
+        }
+    }
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+        margin-left: 0%;
+        margin-right: 0%;
+        margin-bottom: 30px;
+        .content {
+            padding: 0px 20px;
+        }
+        h3 {
+            font-size: 0.9rem;
+        }
+        #description {
+            font-size: 0.8rem;
         }
     }
 }
