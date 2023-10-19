@@ -8,7 +8,6 @@ class NavBar extends HTMLElement {
     connectedCallback() {
         this.render()
         this._initEvent()
-        this._toggleStickyMenu()
     }
 
     _initEvent() {
@@ -51,19 +50,6 @@ class NavBar extends HTMLElement {
             drawerElement.classList.toggle("open");
         }
         event.stopPropagation();
-    }
-
-    _toggleStickyMenu() {
-        var menuSticky = document.getElementById("nav-bar");
-        window.document.addEventListener('scroll', function () {
-            var scroll = window.scrollY
-
-            if (scroll >= 450) {
-                menuSticky.classList.add("sticky");
-            } else {
-                menuSticky.classList.remove("sticky");
-            }
-        });
     }
 
     render() {

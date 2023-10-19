@@ -7,6 +7,9 @@ restaurant-component {
     min-width: 250px;
     max-width: 300px;
     transition: all 0.2s ease;
+    a {
+        text-decoration: none;
+    }
     .thumbnail {
         padding: 0px;
         img {
@@ -27,10 +30,12 @@ restaurant-component {
             h5 {
                 font-weight: 600;
                 font-size: 1rem !important;
+                color: $black-800;
             }
             p {
-                font-weight: 300;
+                font-weight: 500;
                 font-size: 0.8rem;
+                color: $black-700;
             }
         }
         div {
@@ -42,6 +47,7 @@ restaurant-component {
             span {
                 margin-left: 5px;
                 font-size: 0.9rem;
+                color: $black;
             }
         }
     }
@@ -51,7 +57,7 @@ restaurant-component {
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             display: -webkit-box;
-            color: $text-muted;
+            color: $black-700;
             font-size: 0.8rem;
             font-weight: 300;
             overflow: hidden;
@@ -68,5 +74,90 @@ restaurant-component {
         box-shadow: 0px 7px 14px -6px rgba(0,0,0,0.30);
         -webkit-box-shadow: 0px 7px 14px -6px rgba(0,0,0,0.30);
         -moz-box-shadow: 0px 7px 14px -6px rgba(0,0,0,0.30);
+    }
+}
+
+.detail-restaurant {
+    .thumbnail {
+        position: relative;
+        img {
+            width: 100%;
+            border-radius: $border-radius-lg;
+        }
+        .thumbnail-content {
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 32px;
+            background-color: rgba(0, 0, 0, 0.598);
+            border-bottom-left-radius: $border-radius-lg;
+            border-bottom-right-radius: $border-radius-lg;
+            color: white;
+        }
+        .thumbnail-detail {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+        }
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .categories {
+        display: flex;
+        gap: 15px;
+        row-gap: 15px;
+        div {
+            background-color: #97cbff;
+            color: $white;
+            padding: 5px 10px;
+            border-radius: $border-radius-xl;
+            border: 2px solid $info;
+        }
+    }
+    .menu {
+        display: block;
+        .menu-child {
+            display: grid;
+            gap: 15px;
+            row-gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            div {
+                cursor: default;
+                background-color: $primary;
+                padding: 20px;
+                border-radius: $border-radius-lg;
+                color: $white;
+                &:hover {
+                    background-color: $accent;
+                    color: $primary-dark;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .rating {
+        display: flex;
+        overflow-x: auto;
+        .rating-child {
+            padding: 16px;
+            background-color: $bg-gray;
+            border-radius: $border-radius-lg;
+            h4 {
+                color: $black-700;
+            }
+            h5 {
+                color: $black-700;
+                font-weight: 400;
+            }
+            p {
+                margin-top: 10px;
+                color: $black-700;
+                font-weight: 500;
+                font-size: 0.8rem;
+            }
+        }
     }
 }

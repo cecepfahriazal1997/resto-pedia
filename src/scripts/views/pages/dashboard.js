@@ -1,5 +1,5 @@
 import ApiServices from "../../services/api-service"
-import ApiConfig from "../../globals/api-config"
+import API_ENDPOINT from "../../globals/api-config"
 
 const Dashboard = {
     async render() {
@@ -16,7 +16,7 @@ const Dashboard = {
         this._initList('vertical','all')
     },
     async _initList(direction, type, limit=null) {
-        const fetchData = await ApiServices.fetchData(ApiConfig.LIST)
+        const fetchData = await ApiServices.fetchData(API_ENDPOINT.LIST)
 
         if (fetchData.error) return false
         

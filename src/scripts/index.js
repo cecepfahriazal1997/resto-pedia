@@ -11,6 +11,8 @@ import './components/footer.js'
 import App from './views/app'
 
 const app = new App({
+    navbar: document.querySelector('#nav-bar'),
+    hero: document.querySelector('#hero'),
     content: document.querySelector('#content')
 })
 
