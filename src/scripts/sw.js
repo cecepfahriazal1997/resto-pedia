@@ -6,7 +6,7 @@ import CONFIG from './globals/config';
 // Do precaching
 precacheAndRoute(self.__WB_MANIFEST);
 
-const themoviedbApi = new Route(
+const apiResturant = new Route(
     ({
         url
     }) => url.href.startsWith(CONFIG.API_BASE_URL),
@@ -15,7 +15,7 @@ const themoviedbApi = new Route(
     }),
 );
 
-registerRoute(themoviedbApi);
+registerRoute(apiResturant);
 
 self.addEventListener('install', () => {
     console.log('Service Worker: Installed');
