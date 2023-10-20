@@ -17,6 +17,18 @@ const Detail = {
         const url = UrlParser.parseActiveUrlWithoutCombiner();
         const fetchData = await ApiServices.fetchData(API_ENDPOINT.DETAIL(url.id))
 
+        // caches.open('restaurant-api').then(function (cache) {
+        //     cache.match("/detail/6u9lf7okjh9kfw1e867").then(function (response) {
+        //         console.log(response);
+        //         if (response) {
+        //             // Resource found in cache
+        //             console.log(response);
+        //         } else {
+        //             // Resource not found in cache
+        //         }
+        //     })
+        // });
+
         if (!fetchData.error) {
             contain.innerHTML = await this._buildUIDetailData(fetchData.restaurant)
             await this._operationFavoriteButton(fetchData.restaurant)
@@ -131,7 +143,7 @@ const Detail = {
     async _operationFavoriteButton(data) {
         const restaurant = await FavoriteRestaurant.findRestaurant(data.id);
         const likeButton = document.querySelector('#favorite');
-        
+
         // set active/non-active favorite
         this._toggleButtonFavorite(likeButton, restaurant)
         likeButton.addEventListener('click', async () => {
@@ -144,7 +156,7 @@ const Detail = {
             }
         });
     },
-    async _toggleButtonFavorite(button, isActive=false) {
+    async _toggleButtonFavorite(button, isActive = false) {
         if (isActive) {
             button.innerHTML = `<i class="ph-fill ph-heart f-3"></i>`
         } else {

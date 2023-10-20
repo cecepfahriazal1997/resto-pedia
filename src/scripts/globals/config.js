@@ -6,6 +6,7 @@ const CONFIG = {
     DATABASE_NAME: 'resto-pedia',
     DATABASE_VERSION: 1,
     OBJECT_STORE_NAME: 'restaurant',
+    CACHE_NAME: 'resto-pedia-v1'
 }
 
 export default CONFIG
