@@ -4,6 +4,8 @@ import CONFIG from "../../globals/config"
 
 import UrlParser from '../../routes/url-parser'
 
+import FavoriteRestaurant from "../../utils/local-idb"
+
 const Detail = {
     async render() {
         return `
@@ -17,6 +19,7 @@ const Detail = {
 
         if (!fetchData.error) {
             contain.innerHTML = await this._buildUIDetailData(fetchData.restaurant)
+            await this._operationFavoriteButton(fetchData.restaurant)
         }
     },
     async _buildUIDetailData(data) {
@@ -40,7 +43,7 @@ const Detail = {
                             ${await this._buildUICategories(data.categories)}
                         </div>
                         <div class="action-control">
-                            <button class="button button-primary button-circle"><i class="ph ph-heart f-3"></i></button>
+                            <button class="button button-primary button-circle" id="favorite"><i class="ph ph-heart f-3"></i></button>
                         </div>
                     </div>
                     <h3 class="mt-3 mb-3">Overview</h3>
@@ -124,6 +127,29 @@ const Detail = {
         <h3 class="mb-2"><i class="ph-fill ph-star-half mr-2"></i> Review</h3>
         ${containerRating}
         `
+    },
+    async _operationFavoriteButton(data) {
+        const restaurant = await FavoriteRestaurant.findRestaurant(data.id);
+        const likeButton = document.querySelector('#favorite');
+        
+        // set active/non-active favorite
+        this._toggleButtonFavorite(likeButton, restaurant)
+        likeButton.addEventListener('click', async () => {
+            if (restaurant) { // jika sudah menambahkan restaurant ke favorite
+                await FavoriteRestaurant.deleteRestaurant(data.id); // hapus dari favorite
+                this._toggleButtonFavorite(likeButton, false)
+            } else { // jika belum menambahkan restaurant ke favorite
+                await FavoriteRestaurant.pustRestaurant(data);
+                this._toggleButtonFavorite(likeButton, true)
+            }
+        });
+    },
+    async _toggleButtonFavorite(button, isActive=false) {
+        if (isActive) {
+            button.innerHTML = `<i class="ph-fill ph-heart f-3"></i>`
+        } else {
+            button.innerHTML = `<i class="ph ph-heart f-3"></i>`
+        }
     }
 }
 

@@ -13,6 +13,7 @@
   "author": "ceceprokani <ceceprokani9712@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "idb": "^7.1.1",
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
