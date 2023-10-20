@@ -62,10 +62,6 @@ restaurant-component {
             overflow: hidden;
             text-overflow: clip;
             line-height: 1.6;
-            
-            @media screen and (max-width: map-get($container-max-widths, lg)) {
-                -webkit-line-clamp: 2;
-            }
         }
     }
     &:hover {
