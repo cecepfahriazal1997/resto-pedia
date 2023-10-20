@@ -7,14 +7,17 @@
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "test": "karma start",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "serve": "http-server dist --port 9999"
   },
   "keywords": [],
   "author": "ceceprokani <ceceprokani9712@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "idb": "^7.1.1",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "workbox-routing": "^7.0.0",
+    "workbox-strategies": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.0",
@@ -27,6 +30,7 @@
     "eslint-plugin-import": "^2.28.1",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "http-server": "^14.1.1",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^5.1.1",
     "karma": "^6.4.2",
@@ -42,6 +46,7 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
     "webpack-merge": "^5.9.0",
-    "whatwg-fetch": "^3.6.19"
+    "whatwg-fetch": "^3.6.19",
+    "workbox-webpack-plugin": "^7.0.0"
   }
 }

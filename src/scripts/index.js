@@ -8,6 +8,8 @@ import './components/list-horizontal.js'
 import './components/list-vertical.js'
 import './components/footer.js'
 
+import swRegister from './utils/sw-register'
+
 import App from './views/app'
 
 const app = new App({
@@ -22,7 +24,7 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
     app.renderPage();
-    // swRegister();
+    swRegister();
     // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
     // Initialize footer tools
     // FooterToolsInitiator.init({
