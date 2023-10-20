@@ -20,7 +20,8 @@ const Detail = {
         }
     },
     async _buildUIDetailData(data) {
-        return `<div class="thumbnail mb-3 mt-2">
+        return `<a href="#/" class="button button-light btn-back"><i class="ph ph-arrow-left mr-2"></i><span>Kembali</span></a>
+                <div class="thumbnail mb-3">
                     <img src="${CONFIG.API_BASE_URL_IMAGE_MEDIUM}${data.pictureId}"></img>
                     <div class="thumbnail-content">
                         <h1 class="mb-2">${data.name}</h1>
@@ -40,7 +41,6 @@ const Detail = {
                         </div>
                         <div class="action-control">
                             <button class="button button-primary button-circle"><i class="ph ph-heart f-3"></i></button>
-                            <a href="#/" class="button button-light btn-back">Kembali</a>
                         </div>
                     </div>
                     <h3 class="mt-3 mb-3">Overview</h3>
