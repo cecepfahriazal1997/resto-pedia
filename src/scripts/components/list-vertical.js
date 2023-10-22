@@ -1,26 +1,22 @@
-import './restaurant.js'
+import './restaurant';
 
 class ListVertical extends HTMLElement {
-    constructor() {
-        super()
-    }
-
     set listItem(item) {
-        this._item = item
-        this.render()
+        this._item = item;
+        this.render();
     }
 
     render() {
         // create container for list movie
-        const container = document.createElement('div')
-        container.classList.add('list')
+        const container = document.createElement('div');
+        container.classList.add('list');
 
         if (this._item && this._item.lists.length > 0) {
-            this._item.lists.forEach(detail => {
+            this._item.lists.forEach((detail) => {
                 // init item movie from component
-                const itemMovie = document.createElement('restaurant-component')
-                itemMovie.detail = detail
-                container.appendChild(itemMovie)
+                const itemMovie = document.createElement('restaurant-component');
+                itemMovie.detail = detail;
+                container.appendChild(itemMovie);
             });
         }
 
@@ -39,4 +35,4 @@ class ListVertical extends HTMLElement {
     }
 }
 
-customElements.define('list-vertical-component', ListVertical)
+customElements.define('list-vertical-component', ListVertical);

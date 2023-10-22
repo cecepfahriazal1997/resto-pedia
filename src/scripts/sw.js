@@ -8,7 +8,7 @@ precacheAndRoute(self.__WB_MANIFEST);
 
 const apiResturant = new Route(
     ({
-        url
+        url,
     }) => url.href.startsWith(CONFIG.API_BASE_URL),
     new StaleWhileRevalidate({
         cacheName: 'restaurant-api',
@@ -32,5 +32,5 @@ self.addEventListener('install', () => {
 //             image: dataJson.options.image,
 //         },
 //     };
-//     event.waitUntil(self.registration.showNotification(notification.title, notification.options));
+//   event.waitUntil(self.registration.showNotification(notification.title, notification.options));
 // });

@@ -1,10 +1,6 @@
 class Hero extends HTMLElement {
-    constructor() {
-        super()
-    }
-
     connectedCallback() {
-        this.render()
+        this.render();
     }
 
     render() {
@@ -22,4 +18,4 @@ class Hero extends HTMLElement {
     }
 }
 
-customElements.define('hero-component', Hero)
+customElements.define('hero-component', Hero);

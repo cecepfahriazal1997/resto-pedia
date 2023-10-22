@@ -1,55 +1,51 @@
-import logo from '../../public/images/logo.png'
+import logo from '../../public/images/logo.png';
 
 class NavBar extends HTMLElement {
-    constructor() {
-        super()
-    }
-
     connectedCallback() {
-        this.render()
-        this._initEvent()
+        this.render();
+        this._initEvent();
     }
 
     _initEvent() {
-        const hamburgerButtonElement = document.querySelector("#menu");
-        const drawerElement = document.querySelector("#drawer");
-        const mainElement = document.querySelector("body");
-        const listMenu = document.querySelectorAll(".nav-link");
+        const hamburgerButtonElement = document.querySelector('#menu');
+        const drawerElement = document.querySelector('#drawer');
+        const mainElement = document.querySelector('body');
+        const listMenu = document.querySelectorAll('.nav-link');
 
         // initialize event for menu desktop
         for (const menu of listMenu) {
             menu.addEventListener('click', (event) => {
                 for (const allMenu of listMenu) {
-                    allMenu.classList.remove('active')
+                    allMenu.classList.remove('active');
                 }
-                event.target.classList.toggle('active')
-            })
+                event.target.classList.toggle('active');
+            });
         }
 
         // initialize event for menu mobile
-        hamburgerButtonElement.addEventListener("keypress", (event) => {
-            this._toggleSideBar(event, hamburgerButtonElement, drawerElement)
-            window.scrollTo(0,0)
+        hamburgerButtonElement.addEventListener('keypress', (event) => {
+            this._toggleSideBar(event, hamburgerButtonElement, drawerElement);
+            window.scrollTo(0, 0);
         });
 
-        hamburgerButtonElement.addEventListener("click", (event) => {
-            this._toggleSideBar(event, hamburgerButtonElement, drawerElement)
+        hamburgerButtonElement.addEventListener('click', (event) => {
+            this._toggleSideBar(event, hamburgerButtonElement, drawerElement);
         });
-        
-        mainElement.addEventListener("click", (event) => {
-            this._toggleSideBar(event, hamburgerButtonElement, drawerElement, 'nonactive')
+
+        mainElement.addEventListener('click', (event) => {
+            this._toggleSideBar(event, hamburgerButtonElement, drawerElement, 'nonactive');
         });
     }
 
-    _toggleSideBar(event, hamburgerButtonElement, drawerElement, mode='toggle') {
-        if (mode == 'nonactive') {
-            hamburgerButtonElement.classList.remove("active");
-            drawerElement.classList.remove("open");
-        } else {
-            hamburgerButtonElement.classList.toggle("active");
-            drawerElement.classList.toggle("open");
-        }
+    _toggleSideBar(event, hamburgerButtonElement, drawerElement, mode = 'toggle') {
         event.stopPropagation();
+        if (mode === 'nonactive') {
+            hamburgerButtonElement.classList.remove('active');
+            drawerElement.classList.remove('open');
+        } else {
+            hamburgerButtonElement.classList.toggle('active');
+            drawerElement.classList.toggle('open');
+        }
     }
 
     render() {
@@ -73,4 +69,4 @@ class NavBar extends HTMLElement {
     }
 }
 
-customElements.define('nav-bar-component', NavBar)
+customElements.define('nav-bar-component', NavBar);

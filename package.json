@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "test": "karma start",
     "lint": "eslint ./src",
+    "lint-fix": "eslint --fix ./src",
     "serve": "http-server dist --port 9999"
   },
   "keywords": [],

@@ -1,11 +1,11 @@
-import FavoriteRestaurant from "../../utils/local-idb";
+import FavoriteRestaurant from '../../utils/local-idb';
 
 const Favorite = {
     async render() {
         return `
         <div id="list-restaurant">
         <list-vertical-component></list-vertical-component>
-        </div>`
+        </div>`;
     },
     async finishRender() {
         const restaurant = await FavoriteRestaurant.fetchAllRestaurant();
@@ -13,11 +13,11 @@ const Favorite = {
 
         const data = {
             title: 'Favorite Restaurants',
-            lists: restaurant
-        }
-        
-        restaurantContainer.listItem = data
-    }
-}
+            lists: restaurant,
+        };
 
-export default Favorite
+        restaurantContainer.listItem = data;
+    },
+};
+
+export default Favorite;

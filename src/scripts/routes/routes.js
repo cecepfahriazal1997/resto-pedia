@@ -1,12 +1,12 @@
-import Dashboard from "../views/pages/dashboard"
-import Favorite from "../views/pages/favorite"
-import Detail from "../views/pages/detail"
+import Dashboard from '../views/pages/dashboard';
+import Favorite from '../views/pages/favorite';
+import Detail from '../views/pages/detail';
 
 const routes = {
     '/': Dashboard,
     '/favorite': Favorite,
     '/detail/:id': Detail,
     '/about': null,
-}
+};
 
-export default routes
+export default routes;

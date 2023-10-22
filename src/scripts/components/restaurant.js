@@ -1,12 +1,9 @@
-import CONFIG from "../globals/config";
-class Restaurant extends HTMLElement {
-    constructor() {
-        super()
-    }
+import CONFIG from '../globals/config';
 
+class Restaurant extends HTMLElement {
     set detail(data) {
-        this._detail = data
-        this.render()
+        this._detail = data;
+        this.render();
     }
 
     render() {
@@ -32,4 +29,4 @@ class Restaurant extends HTMLElement {
     }
 }
 
-customElements.define('restaurant-component', Restaurant)
+customElements.define('restaurant-component', Restaurant);

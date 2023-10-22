@@ -1,21 +1,21 @@
-import ApiServices from "../../services/api-service"
-import API_ENDPOINT from "../../globals/api-config"
-import CONFIG from "../../globals/config"
+import ApiServices from '../../services/api-service';
+import API_ENDPOINT from '../../globals/api-config';
+import CONFIG from '../../globals/config';
 
-import UrlParser from '../../routes/url-parser'
+import UrlParser from '../../routes/url-parser';
 
-import FavoriteRestaurant from "../../utils/local-idb"
+import FavoriteRestaurant from '../../utils/local-idb';
 
 const Detail = {
     async render() {
         return `
         <div id="detail-restaurant" class="detail-restaurant"></div>
-        `
+        `;
     },
     async finishRender() {
-        const contain = document.querySelector('#detail-restaurant')
+        const contain = document.querySelector('#detail-restaurant');
         const url = UrlParser.parseActiveUrlWithoutCombiner();
-        const fetchData = await ApiServices.fetchData(API_ENDPOINT.DETAIL(url.id))
+        const fetchData = await ApiServices.fetchData(API_ENDPOINT.DETAIL(url.id));
 
         // caches.open('restaurant-api').then(function (cache) {
         //     cache.match("/detail/6u9lf7okjh9kfw1e867").then(function (response) {
@@ -30,8 +30,8 @@ const Detail = {
         // });
 
         if (!fetchData.error) {
-            contain.innerHTML = await this._buildUIDetailData(fetchData.restaurant)
-            await this._operationFavoriteButton(fetchData.restaurant)
+            contain.innerHTML = await this._buildUIDetailData(fetchData.restaurant);
+            await this._operationFavoriteButton(fetchData.restaurant);
         }
     },
     async _buildUIDetailData(data) {
@@ -64,46 +64,46 @@ const Detail = {
                         ${await this._buildUIMenu(data.menus)}
                     </div>
                     ${await this._buildUIRating(data.customerReviews)}
-                </div>`
+                </div>`;
     },
     async _buildUICategories(listCategories) {
-        let result = ``
-        listCategories.forEach(element => {
-            result += `<div>${element.name}</div>`
+        let result = '';
+        listCategories.forEach((element) => {
+            result += `<div>${element.name}</div>`;
         });
 
         return `
         <div class="categories">
         ${result}
-        </div>`
+        </div>`;
     },
     async _buildUIMenu(listMenu) {
         // get list foods
-        let containerFood = `<div class="empty-state mb-4">Daftar menu makanan tidak tersedia</div>`
+        let containerFood = '<div class="empty-state mb-4">Daftar menu makanan tidak tersedia</div>';
         if (listMenu && listMenu.foods) {
-            let listMenuFoods = ``
-            listMenu.foods.forEach(element => {
-                listMenuFoods += `<div>${element.name}</div>`
+            let listMenuFoods = '';
+            listMenu.foods.forEach((element) => {
+                listMenuFoods += `<div>${element.name}</div>`;
             });
 
             containerFood = `
             <div class="menu-child foods mb-4">
             ${listMenuFoods}
-            </div>`
+            </div>`;
         }
 
         // get list drinks
-        let containerDrink = `<div class="empty-state">Daftar menu minuman tidak tersedia</div>`
+        let containerDrink = '<div class="empty-state">Daftar menu minuman tidak tersedia</div>';
         if (listMenu && listMenu.drinks) {
-            let listMenuDrinks = ``
-            listMenu.drinks.forEach(element => {
-                listMenuDrinks += `<div>${element.name}</div>`
+            let listMenuDrinks = '';
+            listMenu.drinks.forEach((element) => {
+                listMenuDrinks += `<div>${element.name}</div>`;
             });
 
             containerDrink = `
             <div class="menu-child foods mb-4">
             ${listMenuDrinks}
-            </div>`
+            </div>`;
         }
 
         return `
@@ -111,13 +111,13 @@ const Detail = {
         ${containerFood}
         <h3 class="mb-2"><i class="ph-fill ph-brandy mr-2"></i> Menu Minuman</h3>
         ${containerDrink}
-        `
+        `;
     },
     async _buildUIRating(listRating) {
-        let rating = ``
-        let containerRating = `<div class="empty-state mb-4">Daftar menu makanan tidak tersedia</div>`
+        let rating = '';
+        let containerRating = '<div class="empty-state mb-4">Daftar menu makanan tidak tersedia</div>';
         if (listRating) {
-            listRating.forEach(element => {
+            listRating.forEach((element) => {
                 rating += `
                 <div class="rating-child">
                     <div class="identity">
@@ -128,41 +128,41 @@ const Detail = {
                         </div>
                     </div>
                     <p>${element.review}</p>
-                </div>`
+                </div>`;
             });
             containerRating = `
             <div class="rating">
             ${rating}
-            </div>`
+            </div>`;
         }
         return `
         <h3 class="mb-2"><i class="ph-fill ph-star-half mr-2"></i> Review</h3>
         ${containerRating}
-        `
+        `;
     },
     async _operationFavoriteButton(data) {
         const restaurant = await FavoriteRestaurant.findRestaurant(data.id);
         const likeButton = document.querySelector('#favorite');
 
         // set active/non-active favorite
-        this._toggleButtonFavorite(likeButton, restaurant)
+        this._toggleButtonFavorite(likeButton, restaurant);
         likeButton.addEventListener('click', async () => {
             if (restaurant) { // jika sudah menambahkan restaurant ke favorite
                 await FavoriteRestaurant.deleteRestaurant(data.id); // hapus dari favorite
-                this._toggleButtonFavorite(likeButton, false)
+                this._toggleButtonFavorite(likeButton, false);
             } else { // jika belum menambahkan restaurant ke favorite
                 await FavoriteRestaurant.pustRestaurant(data);
-                this._toggleButtonFavorite(likeButton, true)
+                this._toggleButtonFavorite(likeButton, true);
             }
         });
     },
     async _toggleButtonFavorite(button, isActive = false) {
         if (isActive) {
-            button.innerHTML = `<i class="ph-fill ph-heart f-3"></i>`
+            button.innerHTML = '<i class="ph-fill ph-heart f-3"></i>';
         } else {
-            button.innerHTML = `<i class="ph ph-heart f-3"></i>`
+            button.innerHTML = '<i class="ph ph-heart f-3"></i>';
         }
-    }
-}
+    },
+};
 
-export default Detail
+export default Detail;
