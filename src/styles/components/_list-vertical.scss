@@ -13,7 +13,7 @@ list-vertical-component {
     }
     .list-restaurant-vertical {
         margin-top: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
         display: grid;
         gap: 10px;
         grid-gap: 10px;

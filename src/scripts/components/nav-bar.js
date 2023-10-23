@@ -1,3 +1,4 @@
+import UrlParser from '../routes/url-parser';
 import logo from '../../public/images/logo.png';
 
 class NavBar extends HTMLElement {
@@ -49,6 +50,7 @@ class NavBar extends HTMLElement {
     }
 
     render() {
+        const url = UrlParser.parseActiveUrlWithCombiner();
         this.innerHTML = `
         <div class="container">
             <div class="action-bar">
@@ -61,9 +63,9 @@ class NavBar extends HTMLElement {
                 </a>
             </div>
             <ul id="drawer" class="nav">
-                <li><a href="#/" class="nav-link active">Home</a></li>
-                <li><a href="#/favorite" class="nav-link">Favorite</a></li>
-                <li><a href="#/about" class="nav-link">About</a></li>
+                <li><a href="#/" class="nav-link ${url === '/' ? 'active' : ''}">Home</a></li>
+                <li><a href="#/favorite" class="nav-link ${url === '/favorite' ? 'active' : ''}">Favorite</a></li>
+                <li><a href="#/about" class="nav-link ${url === '/about' ? 'active' : ''}">About</a></li>
             </ul>
         </div>`;
     }

@@ -129,25 +129,25 @@ const Detail = {
     },
     async _operationFavoriteButton(data) {
         const restaurant = await FavoriteRestaurant.findRestaurant(data.id);
-        const likeButton = document.querySelector('#favorite');
+        this._likeButton = document.querySelector('#favorite');
 
         // set active/non-active favorite
-        this._toggleButtonFavorite(likeButton, restaurant);
-        likeButton.addEventListener('click', async () => {
+        this._toggleButtonFavorite(restaurant);
+        this._likeButton.addEventListener('click', async () => {
             if (restaurant) { // jika sudah menambahkan restaurant ke favorite
                 await FavoriteRestaurant.deleteRestaurant(data.id); // hapus dari favorite
-                this._toggleButtonFavorite(likeButton, false);
+                this._toggleButtonFavorite(false);
             } else { // jika belum menambahkan restaurant ke favorite
                 await FavoriteRestaurant.pustRestaurant(data);
-                this._toggleButtonFavorite(likeButton, true);
+                this._toggleButtonFavorite(true);
             }
         });
     },
-    async _toggleButtonFavorite(button, isActive = false) {
+    async _toggleButtonFavorite(isActive = false) {
         if (isActive) {
-            button.innerHTML = '<i class="ph-fill ph-heart f-3"></i>';
+            this._likeButton.innerHTML = '<i class="ph-fill ph-heart f-3"></i>';
         } else {
-            button.innerHTML = '<i class="ph ph-heart f-3"></i>';
+            this._likeButton.innerHTML = '<i class="ph ph-heart f-3"></i>';
         }
     },
 };

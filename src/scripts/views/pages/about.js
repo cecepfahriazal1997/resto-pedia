@@ -1,8 +1,8 @@
-import profile from '../../../public/images/profile.jpg'
-import github from '../../../public/images/github.svg'
-import instagram from '../../../public/images/instagram.svg'
-import linkedin from '../../../public/images/linkedin.svg'
-import facebook from '../../../public/images/facebook.svg'
+import profile from '../../../public/images/profile.jpg';
+import github from '../../../public/images/github.svg';
+import instagram from '../../../public/images/instagram.svg';
+import linkedin from '../../../public/images/linkedin.svg';
+import facebook from '../../../public/images/facebook.svg';
 
 const About = {
     async render() {
@@ -57,7 +57,9 @@ const About = {
         </div>
         `;
     },
-    async finishRender() {},
+    async finishRender() {
+        return true;
+    },
 };
 
 export default About;

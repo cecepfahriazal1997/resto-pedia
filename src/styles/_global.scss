@@ -61,6 +61,14 @@ main {
     margin-bottom: 1.5rem;
 }
 
+.m-4 {
+    margin: 1.5rem;
+}
+
+.p-4 {
+    padding: 1.5rem;
+}
+
 .f-1 {
     font-size: 0.5rem;
 }
@@ -71,6 +79,22 @@ main {
 
 .f-3 {
     font-size: 1.5rem;
+}
+
+.height-100vh {
+    height: 100vh !important;
+}
+
+.bg-light {
+    background-color: $bg-gray-soft;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: $text-muted;
 }
 
 .rounded {
