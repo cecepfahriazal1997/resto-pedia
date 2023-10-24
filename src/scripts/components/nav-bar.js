@@ -25,15 +25,18 @@ class NavBar extends HTMLElement {
 
         // initialize event for menu mobile
         hamburgerButtonElement.addEventListener('keypress', (event) => {
+            event.preventDefault();
             this._toggleSideBar(event, hamburgerButtonElement, drawerElement);
             window.scrollTo(0, 0);
         });
 
         hamburgerButtonElement.addEventListener('click', (event) => {
+            event.preventDefault();
             this._toggleSideBar(event, hamburgerButtonElement, drawerElement);
         });
 
         mainElement.addEventListener('click', (event) => {
+            event.preventDefault();
             this._toggleSideBar(event, hamburgerButtonElement, drawerElement, 'nonactive');
         });
     }
