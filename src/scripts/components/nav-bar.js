@@ -58,9 +58,9 @@ class NavBar extends HTMLElement {
                     <img src="${logo}" alt="" />
                     <h1 id="title">RestoPedia</h1>
                 </a>
-                <a href="javascript:void(0)" id="menu">
+                <button id="menu">
                     <span></span>
-                </a>
+                </button>
             </div>
             <ul id="drawer" class="nav">
                 <li><a href="#/" class="nav-link ${url === '/' ? 'active' : ''}">Home</a></li>
