@@ -36,6 +36,19 @@ class App {
         window.scrollTo(0, 0);
         this._content.innerHTML = await page.render();
         await page.finishRender();
+
+        await this._skipToContent()
+    }
+
+    async _skipToContent() {
+        const skipLink = document.querySelector(".skip-content");
+        const mainContent = document.querySelector("#content");
+
+        skipLink.addEventListener("click", event => {
+            event.preventDefault();
+            mainContent.scrollIntoView({behavior : "smooth"});
+            skipLink.blur();
+        })
     }
 }
 
