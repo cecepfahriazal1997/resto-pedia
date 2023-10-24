@@ -26,11 +26,11 @@ class App {
         if (url === '/') {
             this._navbar.classList.remove('sticky');
             this._hero.innerHTML = '<hero-component></hero-component>';
-            window.document.addEventListener('scroll', this._eventListenerScrolling());
+            window.document.addEventListener('scroll', this._eventListenerScrolling);
         } else {
             this._hero.innerHTML = '';
             this._navbar.classList.add('sticky');
-            window.document.removeEventListener('scroll', this._eventListenerScrolling());
+            window.document.removeEventListener('scroll', this._eventListenerScrolling);
         }
 
         window.scrollTo(0, 0);
