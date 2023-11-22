@@ -36,7 +36,7 @@ class NavBar extends HTMLElement {
         });
 
         mainElement.addEventListener('click', (event) => {
-            event.preventDefault();
+            // event.preventDefault();
             this._toggleSideBar(event, hamburgerButtonElement, drawerElement, 'nonactive');
         });
     }
