@@ -134,6 +134,7 @@ const Detail = {
         // set active/non-active favorite
         this._toggleButtonFavorite(restaurant);
         this._likeButton.addEventListener('click', async () => {
+            const restaurant = await FavoriteRestaurant.findRestaurant(data.id);
             if (restaurant) { // jika sudah menambahkan restaurant ke favorite
                 await FavoriteRestaurant.deleteRestaurant(data.id); // hapus dari favorite
                 this._toggleButtonFavorite(false);
