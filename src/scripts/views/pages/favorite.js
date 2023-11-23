@@ -3,7 +3,7 @@ import FavoriteRestaurant from '../../utils/local-idb';
 const Favorite = {
     async render() {
         return `
-        <div id="list-restaurant" class="bg-light height-100vh">
+        <div id="list-restaurant" class="bg-light" style="min-height: 100vh">
         <list-vertical-component></list-vertical-component>
         </div>`;
     },
