@@ -4,7 +4,7 @@ import CONFIG from '../../globals/config';
 
 import UrlParser from '../../routes/url-parser';
 
-import FavoriteRestaurant from '../../utils/local-idb';
+import FavoriteButton from '../../utils/favorite-button';
 
 const Detail = {
     async render() {
@@ -18,7 +18,10 @@ const Detail = {
         const fetchData = await ApiServices.fetchData(API_ENDPOINT.DETAIL(url.id));
         if (!fetchData.error) {
             contain.innerHTML = await this._buildUIDetailData(fetchData.restaurant);
-            await this._operationFavoriteButton(fetchData.restaurant);
+            FavoriteButton.init({
+                favoriteButtonContainer: document.querySelector('#action-favorite'),
+                restaurant: fetchData.restaurant
+            });
         }
     },
     async _buildUIDetailData(data) {
@@ -41,9 +44,7 @@ const Detail = {
                         <div>
                             ${await this._buildUICategories(data.categories)}
                         </div>
-                        <div class="action-control">
-                            <button class="button button-primary button-circle" id="favorite"><i class="ph ph-heart f-3"></i></button>
-                        </div>
+                        <div class="action-control" id="action-favorite"></div>
                     </div>
                     <h3 class="mt-3 mb-3">Overview</h3>
                     <p class="mb-3" id="description">${data.description}</p>
@@ -126,30 +127,6 @@ const Detail = {
         <h3 class="mb-2"><i class="ph-fill ph-star-half mr-2"></i> Review</h3>
         ${containerRating}
         `;
-    },
-    async _operationFavoriteButton(data) {
-        const restaurant = await FavoriteRestaurant.findRestaurant(data.id);
-        this._likeButton = document.querySelector('#favorite');
-
-        // set active/non-active favorite
-        this._toggleButtonFavorite(restaurant);
-        this._likeButton.addEventListener('click', async () => {
-            const restaurant = await FavoriteRestaurant.findRestaurant(data.id);
-            if (restaurant) { // jika sudah menambahkan restaurant ke favorite
-                await FavoriteRestaurant.deleteRestaurant(data.id); // hapus dari favorite
-                this._toggleButtonFavorite(false);
-            } else { // jika belum menambahkan restaurant ke favorite
-                await FavoriteRestaurant.pustRestaurant(data);
-                this._toggleButtonFavorite(true);
-            }
-        });
-    },
-    async _toggleButtonFavorite(isActive = false) {
-        if (isActive) {
-            this._likeButton.innerHTML = '<i class="ph-fill ph-heart f-3"></i>';
-        } else {
-            this._likeButton.innerHTML = '<i class="ph ph-heart f-3"></i>';
-        }
     },
 };
 
