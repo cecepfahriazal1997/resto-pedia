@@ -20,7 +20,7 @@ const Detail = {
             contain.innerHTML = await this._buildUIDetailData(fetchData.restaurant);
             FavoriteButton.init({
                 favoriteButtonContainer: document.querySelector('#action-favorite'),
-                restaurant: fetchData.restaurant
+                restaurant: fetchData.restaurant,
             });
         }
     },
