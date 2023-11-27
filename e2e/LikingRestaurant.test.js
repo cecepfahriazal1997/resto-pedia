@@ -1,6 +1,5 @@
 Feature('Liking Restaurant');
 const assert = require('assert');
-const { async } = require('regenerator-runtime');
 
 Before(({ I }) => {
     I.amOnPage('/#/favorite');
@@ -28,5 +27,4 @@ Scenario('liking one restaurant', async({ I }) => {
     
     const likedMovieTitle = await I.grabTextFrom('restaurant-component a .header .title');
     assert.strictEqual(firstRestaurantTitle, likedMovieTitle);
-    // pause();
 });
