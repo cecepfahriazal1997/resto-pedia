@@ -34,8 +34,13 @@ class App {
         }
 
         window.scrollTo(0, 0);
-        this._content.innerHTML = await page.render();
-        await page.finishRender();
+
+        try {
+            this._content.innerHTML = await page.render();
+            await page.finishRender();
+        } catch (error) {
+            location.href='/';
+        }
 
         await this._skipToContent();
     }

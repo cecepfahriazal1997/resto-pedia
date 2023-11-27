@@ -8,7 +8,7 @@ describe('Unliking A Restaurant', () => {
   
   beforeEach(async () => {
     addLikeButtonContainer();
-    await FavoriteRestaurant.pustRestaurant({ id: 1 });
+    await FavoriteRestaurant.addRestaurant({ id: 1 });
   });
   
   afterEach(async () => {

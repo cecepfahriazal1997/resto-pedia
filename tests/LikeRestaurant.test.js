@@ -50,7 +50,7 @@ describe('Liking A Restaurant', () => {
       restaurant: {id: 1},
     });
     // Tambahkan restaurant dengan ID 1 ke daftar restaurant yang disukai
-    await FavoriteRestaurant.pustRestaurant({ id: 1 });
+    await FavoriteRestaurant.addRestaurant({ id: 1 });
     // Simulasikan pengguna menekan tombol suka restaurant
     document.querySelector('#favorite').dispatchEvent(new Event('click'));
 
@@ -59,7 +59,7 @@ describe('Liking A Restaurant', () => {
     await FavoriteRestaurant.deleteRestaurant(1);
   });
 
-  xit('should not add a restaurant when it has no id', async () => {
+  it('should not add a restaurant when it has no id', async () => {
     await FavoriteButton.init({
       favoriteButtonContainer: document.querySelector('#action-favorite'),
       restaurant: {},
