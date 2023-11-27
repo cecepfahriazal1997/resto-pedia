@@ -10,7 +10,7 @@ class Restaurant extends HTMLElement {
         this.innerHTML = `
             <a href="#/detail/${this._detail.id}">
                 <div class="thumbnail">
-                    <img src="${CONFIG.API_BASE_URL_IMAGE_SMALL}${this._detail.pictureId}" class="img-thumbnail" alt="Foto Restaurant ${this._detail.name}" />
+                    <img data-src="${CONFIG.API_BASE_URL_IMAGE_SMALL}${this._detail.pictureId}" class="lazyload img-thumbnail" alt="Foto Restaurant ${this._detail.name}" />
                 </div>
                 <div class="header">
                     <div class="title">

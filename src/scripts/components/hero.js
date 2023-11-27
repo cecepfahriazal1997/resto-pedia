@@ -7,7 +7,7 @@ class Hero extends HTMLElement {
         this.innerHTML = `
         <picture>
             <source media="(max-width: 600px)" srcset="./images/hero-image-small.jpg">
-            <img src="/images/hero-image-large.jpg" width="100%" alt="hero-image-large" alt="" />
+            <img class="lazyload" data-src="/images/hero-image-large.jpg" width="100%" alt="hero-image-large" alt="" />
         </picture>
         <div>
             <h1>RestoPedia</h1>
