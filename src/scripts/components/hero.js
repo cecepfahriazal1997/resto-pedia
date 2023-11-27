@@ -5,6 +5,10 @@ class Hero extends HTMLElement {
 
     render() {
         this.innerHTML = `
+        <picture>
+            <source media="(max-width: 600px)" srcset="./images/hero-image-small.jpg">
+            <img class="lazyload" data-src="/images/hero-image-large.jpg" width="100%" alt="hero-image-large" alt="" />
+        </picture>
         <div>
             <h1>RestoPedia</h1>
             <p id="subtitle">Semua Restaurant Nusantara Ada Disini.</p>

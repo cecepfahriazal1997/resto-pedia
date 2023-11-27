@@ -12,6 +12,12 @@ import swRegister from './utils/sw-register';
 
 import App from './views/app';
 
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
+// const START = 10;
+// const NUMBER_OF_IMAGES = 100;
+
 const app = new App({
     navbar: document.querySelector('#nav-bar'),
     hero: document.querySelector('#hero'),

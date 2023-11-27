@@ -22,7 +22,7 @@ const Favorite = {
         } else {
             mainContainer.innerHTML = `
             <div class="p-4"></div>
-            <div class="container text-center p-4 text-muted">Belum ada restaurant favoritmu.<br>Silahkan tambahkan restaurant favorite</div>
+            <div class="container text-center p-4 text-muted empty-state">Belum ada restaurant favoritmu.<br>Silahkan tambahkan restaurant favorite</div>
             `;
         }
     },

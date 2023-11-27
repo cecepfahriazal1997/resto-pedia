@@ -57,8 +57,8 @@ class NavBar extends HTMLElement {
         this.innerHTML = `
         <div class="container">
             <div class="action-bar">
-                <a class="icon" href="/">
-                    <img src="${logo}" alt="" />
+                <a name="logo" class="icon" href="/" aria-label="logo">
+                    <img src="${logo}" width="44" height="44" alt="" />
                     <h1 id="title">RestoPedia</h1>
                 </a>
                 <button id="menu">
