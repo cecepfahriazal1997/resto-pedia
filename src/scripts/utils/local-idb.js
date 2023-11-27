@@ -19,15 +19,18 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 
 const FavoriteRestaurant = {
     async findRestaurant(id) {
+        if (!id) return [];
         return (await dbPromise).get(OBJECT_STORE_NAME, id);
     },
     async fetchAllRestaurant() {
         return (await dbPromise).getAll(OBJECT_STORE_NAME);
     },
     async addRestaurant(movie) {
+        if (!movie) return false;
         return (await dbPromise).put(OBJECT_STORE_NAME, movie);
     },
     async deleteRestaurant(id) {
+        if (!id) return false;
         return (await dbPromise).delete(OBJECT_STORE_NAME, id);
     },
 };
