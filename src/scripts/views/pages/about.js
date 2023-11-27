@@ -14,7 +14,7 @@ const About = {
             </div>
             <div class="content">
                 <div class="photo">
-                    <img src="${profile}"
+                    <img src="${profile}" width="100"
                         class="img-fluid rounded" />
                 </div>
                 <div class="information">

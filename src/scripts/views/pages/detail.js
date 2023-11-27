@@ -109,7 +109,7 @@ const Detail = {
                 rating += `
                 <div class="rating-child">
                     <div class="identity">
-                        <img src="./images/user.png" />
+                        <img src="./images/user.png" width="44" height="44" />
                         <div>
                             <h4>${element.name}</h4>
                             <h5>${element.date}</h5>
