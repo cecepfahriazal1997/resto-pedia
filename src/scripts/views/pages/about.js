@@ -1,4 +1,3 @@
-import profile from '../../../public/images/profile.jpg';
 import github from '../../../public/images/github.svg';
 import instagram from '../../../public/images/instagram.svg';
 import linkedin from '../../../public/images/linkedin.svg';
@@ -14,8 +13,10 @@ const About = {
             </div>
             <div class="content">
                 <div class="photo">
-                    <img src="${profile}" width="100"
-                        class="img-fluid rounded" />
+                    <picture>
+                        <source media="(max-width: 600px)" srcset="./images/profile-small.jpg">
+                        <img src="./images/profile-large.jpg" width="100%" alt="hero-image-large" alt="" />
+                    </picture>
                 </div>
                 <div class="information">
                     <div class="form-group mb-3">
