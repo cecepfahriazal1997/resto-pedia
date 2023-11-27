@@ -24,7 +24,7 @@ const FavoriteRestaurant = {
     async fetchAllRestaurant() {
         return (await dbPromise).getAll(OBJECT_STORE_NAME);
     },
-    async pustRestaurant(movie) {
+    async addRestaurant(movie) {
         return (await dbPromise).put(OBJECT_STORE_NAME, movie);
     },
     async deleteRestaurant(id) {

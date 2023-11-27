@@ -31,7 +31,7 @@ const FavoriteButton = {
         const favoriteBtn = document.querySelector('#favorite');
 
         favoriteBtn.addEventListener('click', async () => {
-            await FavoriteRestaurant.pustRestaurant(this._restaurant);
+            await FavoriteRestaurant.addRestaurant(this._restaurant);
             this._renderButton();
         });
     },
