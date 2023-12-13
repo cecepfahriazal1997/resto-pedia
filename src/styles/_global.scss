@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: $font-main;
+    overflow-x: hidden;
+}
+
+main {
+    min-height: calc(100vh - 138px);
+}
+
+.ml-1 {
+    margin-left: 0.25rem
+}
+
+.ml-2 {
+    margin-left: 0.5rem
+}
+
+.ml-3 {
+    margin-left: 1rem
+}
+
+.ml-4 {
+    margin-left: 1.5em
+}
+
+.mr-1 {
+    margin-right: 0.25rem
+}
+
+.mr-2 {
+    margin-right: 0.5rem
+}
+
+.p-3 {
+    padding: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.m-4 {
+    margin: 1.5rem;
+}
+
+.p-4 {
+    padding: 1.5rem;
+}
+
+.f-1 {
+    font-size: 0.5rem;
+}
+
+.f-2 {
+    font-size: 1rem;
+}
+
+.f-3 {
+    font-size: 1.5rem;
+}
+
+.height-100vh {
+    height: 100vh !important;
+}
+
+.bg-light {
+    background-color: $bg-gray-soft;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: $text-muted;
+}
+
+.rounded {
+    border-radius: $border-radius-lg;
+}
+
+.skip-content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 10px;
+    top: -70px;
+
+    &:focus {
+        top: 0px !important;
+        color: $black;
+        z-index: 10000;
+        background-color: white;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+#list-restaurant {
+    padding-bottom: 60px;
+    background-color: $bg-gray-soft;
+}
+
+.container {
+    margin-right: 15%;
+    margin-left: 15%;
+
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    @media screen and (max-width: map-get($container-max-widths, lg)) {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
+
+.empty-state {
+    display: block;
+    background-color: $bg-light;
+    padding: 30px 10px;
+    border-radius: $border-radius-lg;
+    color: $bg-gray-dark;
+    text-align: center;
+    font-size: 1rem;
+
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+        font-size: 0.8rem;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: $bg-gray-soft;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $bg-gray;
+    border-radius: $border-radius-lg;
+}

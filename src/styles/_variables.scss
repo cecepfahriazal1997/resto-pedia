@@ -1,0 +1,53 @@
+// List Of Color
+$primary: #3C6255;
+$primary-dark: #183D3D;
+$secondary: #5C8374;
+$accent: #93B1A6;
+$dark: #040D12;
+$dark-transparent-level-1: #040d12a4;
+
+$info: #6499E9;
+$info-light: #9EDDFF;
+$info-dark: #3085C3;
+$danger: #D5305D;
+$warning: #FF9A07;
+$warning-dark: #b95500;
+$success: #00C177;
+$success-2: #37C75E;
+$success-dark: #009E61;
+
+$border-radius-xl: 20px;
+$border-radius-lg: 12px;
+$border-radius: 6px;
+$border-radius-sm: 4px;
+
+$white: #FFFFFF;
+$white-100: #ffffff87;
+$black: #000000;
+$black-800: #001524;
+$black-700: #272829;
+
+$bg-light: #F3F5F7;
+$bg-gray: #D8DBDE;
+$bg-gray-dark: #7D7C7C;
+$bg-gray-soft: #F9F9F9;
+$bg-yellow: #F8DE22;
+
+$text-muted: #859BA6;
+
+// Shadow
+$box-shadow: 0 1px 2px rgba(24, 61, 61, 0.1);
+
+// Fonts
+$font-main: 'Poppins';
+
+// Device Size
+$container-max-widths: (
+    xxm: 250px,
+    xm: 325px,
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+);

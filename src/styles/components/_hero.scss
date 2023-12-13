@@ -1,0 +1,73 @@
+hero-component {
+    display: block;
+    width: 100%;
+    background: url('./../public/images/heros/hero-image.jpg') no-repeat fixed center ;
+    height: 600px;
+    background-size: cover;
+
+    div {
+        display: grid;
+        position: relative;
+        align-content: center;
+        text-align: center;
+        height: 600px;
+        background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(4,13,18,1) 0%, rgba(0,0,0,0.375875350140056) 50%, rgba(4,13,18,1)) ;
+        padding: 12px;
+        color: $white;
+        line-height: 2rem;
+        h1 {
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+        #subtitle {
+            font-weight: 600;
+            font-family: monospace;
+            font-size: 1.3rem;
+        }
+        #description {
+            font-weight: 200;
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
+        .search {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            background: transparent;
+            align-items: center;
+            margin: 30px 20%;
+
+            input {
+                width: 100%;
+                height: 48px;
+                position: relative;
+                font-size: 1rem;
+
+                &:focus {
+                    font-weight: 700;
+                    color: $primary;
+                }
+            }
+
+            span {
+                position: absolute;
+                color: $text-muted;
+                right: 0px;
+                font-size: 1.2rem;
+                margin-right: 30px;
+            }
+        }
+
+        @media screen and (max-width: map-get($container-max-widths, md)) {
+            .search {
+                margin: 30px 5%;
+            }
+            #subtitle {
+                font-size: 1rem;
+            }
+            #description {
+                font-size: 1rem;
+            }
+        }
+    }
+}
